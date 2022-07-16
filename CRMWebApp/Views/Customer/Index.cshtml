@@ -2,25 +2,26 @@
 @using CRMWebApp.Models;
 @model IEnumerable<Customer>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Customers List</h2>
-<hr />
-<a href="/home/index">Home</a> |
-<a href="/home/aboutus">AboutUs</a> |
-<a href="/home/contact">Contact</a> |
-<a href="~/customer/index">Customer Details</a>
-<hr />
-<h3>Customer List</h3>
-
-<ul>
     @{
-        foreach (Customer cst in Model)
-        {
-            <li>@cst.Name</li>
-        }
+        ViewBag.Title = "Index";
     }
-</ul>
+
+    <h2>Customers List</h2>
+    <hr />
+    <a href="/home/index">Home</a> |
+    <a href="/home/aboutus">AboutUs</a> |
+    <a href="/home/contact">Contact</a> |
+    <a href="~/customer/index">Customer Details</a> |
+    <a href="/Employees/Index">Employees Details</a>
+    <hr />
+    <h3>Customer List</h3>
+
+    <ul>
+        @{
+            foreach (Customer cst in @Model)
+            {
+                <li>@cst.Name</li>
+            }
+        }
+    </ul>
 

@@ -1,0 +1,25 @@
+﻿@using CRMWebApp.Models;
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Employee Details</h2>
+<hr />
+<a href="/home/index">Home</a> |
+<a href="/home/aboutus">AboutUs</a> |
+<a href="/home/contact">Contact</a> |
+<a href="~/customer/index">Customer Details</a> |
+<a href="/Employees/Index">Employees Details</a>
+<hr />
+<p>Employee Id : @Model.Id</p>
+<p>Employee FirstName : @Model.FirstName</p>
+<p>Employee LastName : @Model.LastName</p>
+<p>Employee Email : @Model.Email</p>
+<p>Employee ContactNumber : @Model.ConatctNumber</p>
+<p>Employee Department : @Model.Department</p>
+<p>Employee Location : @Model.Location</p>
+<hr />
+<a href="/employees/update/@Model.Id">Update</a> | 
+<a href="/employees/delete/@Model.Id">Delete</a>

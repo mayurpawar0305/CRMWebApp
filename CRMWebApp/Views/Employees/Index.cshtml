@@ -1,0 +1,22 @@
+﻿@using CRMWebApp.Models;
+@model IEnumerable<Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employees of KnowIT</h2>
+<hr />
+<a href="/home/index">Home</a> |
+<a href="/home/aboutus">AboutUs</a> |
+<a href="/home/contact">Contact</a> |
+<a href="~/customer/index">Customer Details</a> |
+<a href="/Employees/Index">Employees Details</a>
+
+<hr />
+@{
+    foreach (Employee emp in @Model)
+    {
+        <p><a href="/employees/details/@emp.Id">@emp.FirstName @emp.LastName</a></p>
+    }
+}
+
