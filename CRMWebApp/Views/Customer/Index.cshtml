@@ -1,5 +1,4 @@
 ﻿
-
 @using CRMWebApp.Models;
 @model IEnumerable<Customer>
 
@@ -16,12 +15,12 @@
 <hr />
 <h3>Customer List</h3>
 
-<ol>
+<ul>
     @{
         foreach (Customer cst in Model)
         {
-            <p href="">@cst.Name</p>
+            <li>@cst.Name</li>
         }
     }
-</ol>
+</ul>
 

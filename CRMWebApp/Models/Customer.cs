@@ -5,6 +5,7 @@ using System.Web;
 
 namespace CRMWebApp.Models
 {
+    [Serializable]
     public class Customer
     {
         public int Id { get; set; }
