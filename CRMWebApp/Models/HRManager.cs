@@ -8,10 +8,10 @@ namespace CRMWebApp.Models
 {
     public class HRManager
     {
+        public static string path = @"D:\CDAC\.NET Technology\Day_7\OnlineSolution\CRMWebApp\Content\employees.dat";
         public static List<Employee> GetAll() 
         {
-            string path = @"D:\CDAC\.NET Technology\Day_7\OnlineSolution\CRMWebApp\Content\employees.dat";
-            List<Employee> employees = new List<Employee>();
+           List<Employee> employees = new List<Employee>();
             employees = LoadData(path);
             return employees;
         }
@@ -20,7 +20,6 @@ namespace CRMWebApp.Models
             bool status = false;
             try
             {
-                string path = @"D:\CDAC\.NET Technology\Day_7\OnlineSolution\CRMWebApp\Content\employees.dat";
                 List<Employee> employees = new List<Employee>();
                 employees = LoadData(path);
                 employees.Add(emp);
@@ -36,39 +35,38 @@ namespace CRMWebApp.Models
         public static bool Update(Employee empToUpdate) 
         {
             bool status = false;
-            string path = @"D:\CDAC\.NET Technology\Day_7\OnlineSolution\CRMWebApp\Content\employees.dat";
             List<Employee> employees = new List<Employee>();
             employees = LoadData(path);
-            var employee = from e in employees
-                           where e.Id == empToUpdate.Id
-                           select e;
-            Employee theEmp = employee as Employee;
-            theEmp.FirstName = empToUpdate.FirstName;
-            theEmp.LastName = empToUpdate.LastName;
-            theEmp.Email = empToUpdate.Email;
-            theEmp.ConatctNumber = empToUpdate.ConatctNumber;
-            theEmp.Department = empToUpdate.Department;
-            theEmp.Location = empToUpdate.Location;
+            var result = from r in employees
+                           where r.Id == empToUpdate.Id
+                           select r;
+            
+            result.First().FirstName = empToUpdate.FirstName;
+            result.First().LastName = empToUpdate.LastName;
+            result.First().Email = empToUpdate.Email;
+            result.First().ConatctNumber = empToUpdate.ConatctNumber;
+            result.First().Department = empToUpdate.Department;
+            result.First().Location = empToUpdate.Location;
+            
             status = SavaData(path,employees);
             return status;
         }
         public static bool Delete(int id) 
         {
             bool status = false;
-            string path = @"D:\CDAC\.NET Technology\Day_7\OnlineSolution\CRMWebApp\Content\employees.dat";
             List<Employee> employees = new List<Employee>();
             employees = LoadData(path);
-            var employee = from e in employees
-                           where e.Id == id
-                           select e;
-            status =employees.Remove(employee as Employee);
-            status = true;
+            int no = employees.RemoveAll(emp => emp.Id == id);
+            if (no > 0)
+            {
+                SavaData(path, employees);
+                status = true;
+            }
             return status;
         }
         public static Employee GetByID(int id) 
         {
             Employee emp = new Employee();
-            string path = @"D:\CDAC\.NET Technology\Day_7\OnlineSolution\CRMWebApp\Content\employees.dat";
             List<Employee> employees = new List<Employee>();
             employees = LoadData(path);
             var employee = employees.Find(e => e.Id == id);

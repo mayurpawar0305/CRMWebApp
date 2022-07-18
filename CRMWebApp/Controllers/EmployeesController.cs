@@ -32,5 +32,49 @@ namespace CRMWebApp.Controllers
                 return View();
             }
         }
+        public ActionResult Insert()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Insert(int id, string firstname, string lastname, string email, string department, string location, string contactno)
+        {
+            Employee emp = new Employee
+            {
+                Id = id,
+                FirstName = firstname,
+                LastName = lastname,
+                Email = email,
+                Department = department,
+                Location = location,
+                ConatctNumber = contactno
+            };
+            HRManager.Insert(emp);
+            return RedirectToAction("index");
+        }
+
+        public ActionResult Update(int id)
+        {
+            Employee employee = HRManager.GetByID(id);
+            return View(employee);
+        }
+        [HttpPost]
+        public ActionResult Update(int id, string firstname, string lastname,
+                                    string email, string department,
+                                    string location, string contactnumber)
+        {
+            Employee emp = new Employee
+            {
+                Id = id,
+                FirstName = firstname,
+                LastName = lastname,
+                Email = email,
+                Department = department,
+                Location = location,
+                ConatctNumber = contactnumber
+            };
+            HRManager.Update(emp);
+            return RedirectToAction("index");
+        }
     }
 }
