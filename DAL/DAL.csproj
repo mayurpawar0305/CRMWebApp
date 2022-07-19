@@ -92,9 +92,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CRMWebApp\CRMWebApp.csproj">
-      <Project>{a5319e53-b730-4a24-a3e4-0e8492ed6c6e}</Project>
-      <Name>CRMWebApp</Name>
+    <ProjectReference Include="..\BOL\BOL.csproj">
+      <Project>{e32a7159-69e0-4b2c-864d-88fda9927a07}</Project>
+      <Name>BOL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

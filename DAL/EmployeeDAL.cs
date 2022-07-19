@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using BOL;
 using System.Data;
 using MySql.Data.MySqlClient;
-using CRMWebApp.Models;
+
 namespace DAL
 {
     public class EmployeeDAL
@@ -118,8 +118,9 @@ namespace DAL
 				con.Open();
 				MySqlCommand cmd = new MySqlCommand();
 				cmd.CommandType = CommandType.Text;
-				string query = "INSERT INTO employee (Id,FirstName,LastName,Department,ContactNumber,Email,Location) values(" +
-								emp.Id + ",'" + emp.FirstName + "'," + emp.LastName + "," + emp.Department + ","+emp.ContactNumber + "," + emp.Email + "," + emp.Location +")";
+				string query = "INSERT INTO employee(Id, FirstName, LastName, Department, ContactNumber, Email, Location) " +
+					"values ("+emp.Id+", '"+emp.FirstName+"', '"+emp.LastName+"', '"+emp.Department+"', '"+emp.ContactNumber+"', '"+emp.Email+"', '"+emp.Location+"')";
+
 				int rowsAffected = cmd.ExecuteNonQuery();
 				if (rowsAffected > 0)
 				{

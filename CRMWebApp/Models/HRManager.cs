@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using DAL;
+
 namespace CRMWebApp.Models
 {
     //AllCommented Part is by serialiaztion i.e by file read and write
