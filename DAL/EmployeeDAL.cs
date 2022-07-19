@@ -116,18 +116,20 @@ namespace DAL
 			try
 			{
 				con.Open();
-				MySqlCommand cmd = new MySqlCommand();
-				cmd.CommandType = CommandType.Text;
+				/*MySqlCommand cmd = new MySqlCommand();
+				cmd.Connection = con as MySqlConnection;*/
+				
 				string query = "INSERT INTO employee(Id, FirstName, LastName, Department, ContactNumber, Email, Location) " +
 					"values ("+emp.Id+", '"+emp.FirstName+"', '"+emp.LastName+"', '"+emp.Department+"', '"+emp.ContactNumber+"', '"+emp.Email+"', '"+emp.Location+"')";
-
+				MySqlCommand cmd = new MySqlCommand(query, con as MySqlConnection);
+				cmd.CommandType = CommandType.Text;
 				int rowsAffected = cmd.ExecuteNonQuery();
 				if (rowsAffected > 0)
 				{
 					status = true;
 				}
 			}
-			catch (Exception ex)
+			catch (MySqlException ex)
 			{
 				string exeMessage = ex.Message;
 			}
