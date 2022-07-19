@@ -47,7 +47,7 @@ namespace CRMWebApp.Controllers
                 Email = email,
                 Department = department,
                 Location = location,
-                ConatctNumber = contactno
+                ContactNumber = contactno
             };
             HRManager.Insert(emp);
             return RedirectToAction("index");
@@ -71,7 +71,7 @@ namespace CRMWebApp.Controllers
                 Email = email,
                 Department = department,
                 Location = location,
-                ConatctNumber = contactnumber
+                ContactNumber = contactnumber
             };
             HRManager.Update(emp);
             return RedirectToAction("index");

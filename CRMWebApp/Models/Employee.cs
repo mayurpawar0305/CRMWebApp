@@ -12,7 +12,7 @@ namespace CRMWebApp.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Department { get; set; }
-        public string ConatctNumber { get; set; }
+        public string ContactNumber { get; set; }
         public string Email { get; set; }
         public string Location { get; set; }
 
